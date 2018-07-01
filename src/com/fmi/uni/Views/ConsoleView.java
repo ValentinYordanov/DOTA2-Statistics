@@ -37,6 +37,18 @@ public class ConsoleView {
 
 	}
 
+	private void executeCommand(String command, long profile_id) {
+		Command commandInstance = null;
+		try {
+			commandInstance = CommandFactory.getCommandInstance(command, profile_id);
+			commandInstance.execute();
+		} catch (NumberFormatException ex) {
+			System.out.println("Please input number!");
+		} catch (NullPointerException ex) {
+			System.out.println("there is no such command, please try again!");
+		}
+	}
+
 	public void start() {
 
 		long profile_id = getProfileIdFromInput();
@@ -46,18 +58,8 @@ public class ConsoleView {
 			if (command.split(" ")[0].equals("exit")) {
 				break;
 			}
-			Command cmd = null;
-			try {
-				cmd = CommandFactory.getCommandInstance(command, profile_id);
-			} catch (NumberFormatException ex) {
-				System.out.println("Please input number!");
-				continue;
-			}
-			try {
-				cmd.execute();
-			} catch (NullPointerException ex) {
-				System.out.println("there is no such command, please try again!");
-			}
+
+			executeCommand(command, profile_id);
 		}
 		// sc.close();
 
