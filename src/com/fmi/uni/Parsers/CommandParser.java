@@ -6,15 +6,22 @@ public class CommandParser {
 		
 		String result = null;
 		
-		String[] wordsInCommand = inputFromUser.split(" ");
+		String[] wordsInCommand = inputFromUser.toLowerCase().split(" ");
 		
 		String command = wordsInCommand[0];
 		
 		if (wordsInCommand.length == 1) {
-			if (wordsInCommand[0].equals("winrate")) {
+			if (command.equals("winrate")) {
 				return "winrate";
-			} else if (wordsInCommand[0].equals("totals")) {
+			} else if (command.equals("totals")) {
 				return "totals";
+			}
+		} else if (wordsInCommand.length == 3) {
+			if (command.equals("winrate")) {
+				String parameter = wordsInCommand[1];
+				if (parameter.equals("last")) {
+					return "winrate last";
+				}
 			}
 		}
 		

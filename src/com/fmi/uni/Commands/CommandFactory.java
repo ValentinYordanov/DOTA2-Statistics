@@ -1,36 +1,30 @@
 package com.fmi.uni.Commands;
 
-public interface CommandFactory {
+import java.util.HashMap;
+import java.util.Map;
 
-	static Command getCommandInstance(String command, long profile_id) {
-		String[] words = command.toLowerCase().split(" ");
-//TO DO: Refactor this
-//Split methods
-		if (words.length == 1) {
-			if (words[0].equals("winrate")) {
-				GetWinrate getWinrateLastMatches = new GetWinrate();
-				getWinrateLastMatches.setProfileId(profile_id);
-				return getWinrateLastMatches;
-			} else if (words[0].equals("totals")) {
-				Totals totals = new Totals();
-				totals.setProfileId(profile_id);
-				return totals;
-			}
-		} else {
-			try {
-				if (words[0].equals("winrate")) {
-					if (words[1].equals("last")) {
-						return new GetWinrate(profile_id, Integer.parseInt(words[2]));
-					}
-				}
-			} catch (ArrayIndexOutOfBoundsException ex) {
-				GetWinrate getWinrateLastNMatches = new GetWinrate();
-				getWinrateLastNMatches.setProfileId(profile_id);
-				return getWinrateLastNMatches;
-			}
-		}
+import com.fmi.uni.Parsers.CommandParser;
 
-		return null;
+public abstract class CommandFactory {
+
+	private static Map<String, Command> mapOfCommands = new HashMap<>();
+
+	private static void putInfomationIntoMapOfCommands() {
+
+		mapOfCommands.put("totals", new Totals());
+		mapOfCommands.put("winrate", new GetWinrate());
+		mapOfCommands.put("winrate last", new GetWinrateLastNMatches());
+
+	}
+
+	public static Command getCommandInstance(String inputFromUser, long profile_id) {
+
+		putInfomationIntoMapOfCommands();
+		String parsedCommand = CommandParser.parseCommand(inputFromUser);
+		Command commandInstance = mapOfCommands.get(parsedCommand);
+		commandInstance.setProfileId(profile_id);
+		return commandInstance;
+		
 	}
 
 }

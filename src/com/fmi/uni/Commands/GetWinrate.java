@@ -10,30 +10,14 @@ import com.fmi.uni.Parsers.JSONParsers;
 
 public class GetWinrate extends Command {
 
-	private int numberOfMatchesToShow;
-
-	protected GetWinrate(long profile_id, int numberOfMatchesToShow) {
-
-		this.numberOfMatchesToShow = numberOfMatchesToShow;
-		this.profile_id = profile_id;
-
-	}
-
 	protected GetWinrate() {
-
-		this.numberOfMatchesToShow = 0;
-
 	}
 
 	@Override
 	public void execute() {
 		String jsonData;
 
-		if (numberOfMatchesToShow == 0) {
-			jsonData = Connector.getWinrate(profile_id);
-		} else {
-			jsonData = Connector.getWinrate(profile_id, numberOfMatchesToShow);
-		}
+		jsonData = Connector.getWinrate(profile_id);
 		long wins = 0;
 		long losses = 0;
 
