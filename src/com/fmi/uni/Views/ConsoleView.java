@@ -46,7 +46,13 @@ public class ConsoleView {
 			if (command.split(" ")[0].equals("exit")) {
 				break;
 			}
-			Command cmd = CommandFactory.getCommand(command, profile_id);
+			Command cmd = null;
+			try {
+				cmd = CommandFactory.getCommandInstance(command, profile_id);
+			} catch (NumberFormatException ex) {
+				System.out.println("Please input number!");
+				continue;
+			}
 			try {
 				cmd.execute();
 			} catch (NullPointerException ex) {

@@ -23,7 +23,7 @@ public class JSONParsers {
 		return 0;
 	}
 
-	public static long parseSingleObjectLongs(String jsonData, String attribute) throws ParseException {
+	public static long parseSingleObjectLong(String jsonData, String attribute) throws ParseException {
 
 		JSONParser parser = new JSONParser();
 		JSONObject obj = (JSONObject) parser.parse(jsonData);

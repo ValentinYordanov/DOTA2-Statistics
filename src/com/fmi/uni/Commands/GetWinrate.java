@@ -38,8 +38,8 @@ public class GetWinrate extends Command {
 		long losses = 0;
 
 		try {
-			wins = JSONParsers.parseSingleObjectLongs(jsonData, "win");
-			losses = JSONParsers.parseSingleObjectLongs(jsonData, "lose");
+			wins = JSONParsers.parseSingleObjectLong(jsonData, "win");
+			losses = JSONParsers.parseSingleObjectLong(jsonData, "lose");
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}

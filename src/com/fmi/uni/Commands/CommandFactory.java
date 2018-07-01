@@ -2,9 +2,10 @@ package com.fmi.uni.Commands;
 
 public interface CommandFactory {
 
-	static Command getCommand(String command, long profile_id) {
+	static Command getCommandInstance(String command, long profile_id) {
 		String[] words = command.toLowerCase().split(" ");
 //TO DO: Refactor this
+//Split methods
 		if (words.length == 1) {
 			if (words[0].equals("winrate")) {
 				GetWinrate getWinrateLastMatches = new GetWinrate();
