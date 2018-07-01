@@ -1,4 +1,4 @@
-package com.fmi.uni.View;
+package com.fmi.uni.Views;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -8,7 +8,7 @@ import org.json.simple.parser.ParseException;
 import com.fmi.uni.Commands.Command;
 import com.fmi.uni.Commands.CommandFactory;
 
-public class View {
+public class ConsoleView {
 
 	Command command;
 
@@ -59,7 +59,7 @@ public class View {
 
 	public static void main(String[] args) throws ParseException {
 
-		View view = new View();
+		ConsoleView view = new ConsoleView();
 		view.start();
 
 	}
