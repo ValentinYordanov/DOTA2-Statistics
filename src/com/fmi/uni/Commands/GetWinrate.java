@@ -15,9 +15,8 @@ public class GetWinrate extends Command {
 
 	@Override
 	public void execute() {
-		String jsonData;
 
-		jsonData = Connector.getWinrate(profile_id);
+		String jsonData = Connector.getWinrate(profile_id);
 		long wins = 0;
 		long losses = 0;
 

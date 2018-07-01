@@ -29,6 +29,15 @@ public class CommandParser {
 		
 	}
 	
-	
+	public static String getNumberOfMatchesToShowInGetWinrateFromInput(String inputFromUser) {
+		
+		String[] wordsInUserInput = inputFromUser.toLowerCase().split(" ");
+		
+		if (wordsInUserInput.length != 3) {
+			return "0";
+		}
+		return wordsInUserInput[2];
+		
+	}
 	
 }
