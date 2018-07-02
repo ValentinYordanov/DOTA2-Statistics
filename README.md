@@ -21,6 +21,7 @@ Profile ID is needed for providing statistics
 - `totals`
 
 *Returns all time total values for these attributes:*
+	
 	- kills
 	- deaths
 	- assists
