@@ -24,6 +24,8 @@ public class Totals extends Command {
 			JSONObject match = (JSONObject) object;
 			try {
 				populateMapOfValues(match);
+			} catch (NullPointerException ex) {
+				System.err.println("NULL pointer in Totals");
 			} catch (ClassCastException ex) {
 				continue;
 			} catch (ParseException e) {

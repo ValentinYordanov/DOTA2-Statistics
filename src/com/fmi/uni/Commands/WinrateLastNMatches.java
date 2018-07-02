@@ -33,6 +33,8 @@ public class WinrateLastNMatches extends Winrate {
 		try {
 			wins = Parser.parseSingleObjectLong(object, "win");
 			losses = Parser.parseSingleObjectLong(object, "lose");
+		} catch (NullPointerException ex) {
+			System.err.println("Null pointer in winrate last N");
 		} catch (ParseException e) {
 			System.err.println("problem with parsing in winrate last N");
 		}

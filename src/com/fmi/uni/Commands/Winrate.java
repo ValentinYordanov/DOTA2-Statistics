@@ -47,6 +47,8 @@ public class Winrate extends Command {
 		try {
 			wins = Parser.parseSingleObjectLong(object, "win");
 			losses = Parser.parseSingleObjectLong(object, "lose");
+		} catch (NullPointerException ex) {
+			System.err.println("Null pointer in winrate");
 		} catch (ParseException e) {
 			System.err.println("problem with parsing in winrate");
 		}
