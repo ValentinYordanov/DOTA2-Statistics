@@ -7,28 +7,29 @@ import org.json.simple.parser.ParseException;
 
 public class JSONParsers {
 //TO DO : Rename
-	public static long parseArrayOfObjectsByAttribute(String jsonData, String attribute) throws ParseException {
+	public static JSONArray getJSONArray(String jsonData) throws ParseException {
 
 		JSONParser parser = new JSONParser();
-		JSONArray a = (JSONArray) parser.parse(jsonData);
+		JSONArray resultArray = (JSONArray) parser.parse(jsonData);
 
-		for (Object o : a) {
-			JSONObject match = (JSONObject) o;
-
-			String attr = (String) match.get("field");
-			if (attr.equals(attribute)) {
-				return (long) match.get("sum");
-			}
-		}
-		return 0;
+		return resultArray;
 	}
 
-	public static long parseSingleObjectLong(String jsonData, String attribute) throws ParseException {
-
+	public static JSONObject getJSONObject(String jsonData) throws ParseException {
+		
 		JSONParser parser = new JSONParser();
-		JSONObject obj = (JSONObject) parser.parse(jsonData);
-
-		return (long) obj.get(attribute);
+		JSONObject object = (JSONObject) parser.parse(jsonData);
+		
+		return object;
+		
+	}
+	
+	public static long parseSingleObjectLong(JSONObject object, String key) throws ParseException {
+		return (long) object.get(key);
+	}
+	
+	public static String parseSingleObjectString(JSONObject object, String key) {
+		return (String) object.get(key);
 	}
 
 }
