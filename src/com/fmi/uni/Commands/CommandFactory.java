@@ -23,7 +23,9 @@ public abstract class CommandFactory {
 		putInfomationIntoMapOfCommands(inputFromUser);
 		String parsedCommand = CommandParser.parseCommand(inputFromUser);
 		Command commandInstance = mapOfCommands.get(parsedCommand);
-		commandInstance.setProfileId(profile_id);
+		if (commandInstance != null) {
+			commandInstance.setProfileId(profile_id);
+		}
 		return commandInstance;
 
 	}
