@@ -20,7 +20,7 @@ public class ConsoleView {
 			try {
 				profile_id = sc.nextLong();
 			} catch (InputMismatchException ex) {
-				System.out.println("Wrong input type! Please try again with a long type");
+				System.out.println("Wrong input type! Please try again with a different type");
 				continue;
 			}
 			return profile_id;

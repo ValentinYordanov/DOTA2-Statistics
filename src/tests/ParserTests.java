@@ -14,12 +14,22 @@ public class ParserTests {
 	@Test
 	public void parseSingleObjectLongTest() throws ParseException {
 		
-		String jsonData = Connector.getWinrate(95576837);
-		JSONObject object = Parser.getJSONObject(jsonData);
+		JSONObject object = Parser.getJSONObject("{\"win\":2335,\"lose\":2281}");
 		
 		long wins = Parser.parseSingleObjectLong(object, "win");
 		
 		assertTrue("parsing single object not working right", wins == 2335);
+		
+	}
+	
+	@Test(expected=NullPointerException.class)
+	public void parseSingleObjectLongThrowsNullTest() throws ParseException {
+		
+		JSONObject object = Parser.getJSONObject("{\"win\":2335,\"losses\":2281}");
+		
+		long losses = Parser.parseSingleObjectLong(object, "lose"); //should be losses
+		
+		assertTrue("parsing single object not working right", losses == 2281);
 		
 	}
 	
