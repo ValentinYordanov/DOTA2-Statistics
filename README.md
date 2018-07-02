@@ -18,12 +18,12 @@ Returns number of wins/losses of the player and winrate in % for the last N game
 
 - totals
 Returns all time total values for these attributes:
-- kills
-- deaths
-- assists
-- kda
-- gold_per_min
-- xp_per_min
+1. kills
+2. deaths
+3. assists
+4. kda
+5. gold_per_min
+6. xp_per_min
 and a lot more
 
 ## This application is using [OpenDota.com API](https://docs.opendota.com/).
