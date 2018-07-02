@@ -1,15 +1,15 @@
 package com.fmi.uni.Parsers;
 
 public class CommandParser {
-	
+
 	public static String parseCommand(String inputFromUser) {
-		
+
 		String result = null;
-		
+
 		String[] wordsInCommand = inputFromUser.toLowerCase().split(" ");
-		
+
 		String command = wordsInCommand[0];
-		
+
 		if (wordsInCommand.length == 1) {
 			if (command.equals("winrate")) {
 				return "winrate";
@@ -24,20 +24,20 @@ public class CommandParser {
 				}
 			}
 		}
-		
+
 		return result;
-		
+
 	}
-	
-	public static String getNumberOfMatchesToShowInGetWinrateFromInput(String inputFromUser) {
-		
+
+	public static String getNumberOfMatchesToShowInGetWinrate(String inputFromUser) {
+
 		String[] wordsInUserInput = inputFromUser.toLowerCase().split(" ");
-		
+
 		if (wordsInUserInput.length != 3) {
 			return "0";
 		}
 		return wordsInUserInput[2];
-		
+
 	}
-	
+
 }

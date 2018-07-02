@@ -6,9 +6,9 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Connector {
+public abstract class Connector {
 
-	private static final String baseUrlPlayersTab = "https://api.opendota.com/api/players/";
+	private static final String basePlayerURL = "https://api.opendota.com/api/players/";
 
 	private static String getJSONDataFromAPI(String urlToDownloadFrom) {
 
@@ -32,19 +32,19 @@ public class Connector {
 
 	public static String getWinrate(long profile_id) {
 
-		return getJSONDataFromAPI(baseUrlPlayersTab + profile_id + "/wl");
+		return getJSONDataFromAPI(basePlayerURL + profile_id + "/wl");
 
 	}
 
 	public static String getWinrate(long profile_id, int numberOfMatches) {
 
-		return getJSONDataFromAPI(baseUrlPlayersTab + profile_id + "/wl" + "?limit=" + numberOfMatches);
+		return getJSONDataFromAPI(basePlayerURL + profile_id + "/wl" + "?limit=" + numberOfMatches);
 
 	}
 
 	public static String getTotals(long profile_id) {
 
-		return getJSONDataFromAPI(baseUrlPlayersTab + profile_id + "/totals");
+		return getJSONDataFromAPI(basePlayerURL + profile_id + "/totals");
 
 	}
 

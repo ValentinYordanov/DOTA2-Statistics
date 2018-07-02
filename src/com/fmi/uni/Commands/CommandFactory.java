@@ -12,8 +12,9 @@ public abstract class CommandFactory {
 	private static void putInfomationIntoMapOfCommands(String inputFromUser) {
 
 		mapOfCommands.put("totals", new Totals());
-		mapOfCommands.put("winrate", new GetWinrate());
-		mapOfCommands.put("winrate last", new GetWinrateLastNMatches(Integer.parseInt(CommandParser.getNumberOfMatchesToShowInGetWinrateFromInput(inputFromUser))));
+		mapOfCommands.put("winrate", new Winrate());
+		mapOfCommands.put("winrate last", new WinrateLastNMatches(
+				Integer.parseInt(CommandParser.getNumberOfMatchesToShowInGetWinrate(inputFromUser))));
 
 	}
 
@@ -24,7 +25,7 @@ public abstract class CommandFactory {
 		Command commandInstance = mapOfCommands.get(parsedCommand);
 		commandInstance.setProfileId(profile_id);
 		return commandInstance;
-		
+
 	}
 
 }

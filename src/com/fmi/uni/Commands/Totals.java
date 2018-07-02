@@ -8,7 +8,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 
 import com.fmi.uni.Connections.Connector;
-import com.fmi.uni.Parsers.JSONParsers;
+import com.fmi.uni.Parsers.Parser;
 
 public class Totals extends Command {
 
@@ -34,8 +34,7 @@ public class Totals extends Command {
 	}
 
 	private void populateMapOfValues(JSONObject match) throws ParseException {
-		mapOfValues.put(JSONParsers.parseSingleObjectString(match, "field"),
-				JSONParsers.parseSingleObjectLong(match, "sum"));
+		mapOfValues.put(Parser.parseSingleObjectString(match, "field"), Parser.parseSingleObjectLong(match, "sum"));
 	}
 
 	private void printMapEntries(Map<String, Long> map) {
@@ -43,7 +42,7 @@ public class Totals extends Command {
 			System.out.println(entry.getKey() + ": " + entry.getValue());
 		}
 	}
-	
+
 	@Override
 	public void execute() {
 
@@ -51,7 +50,7 @@ public class Totals extends Command {
 
 		JSONArray array;
 		try {
-			array = JSONParsers.getJSONArray(jsonData);
+			array = Parser.getJSONArray(jsonData);
 			iterateJSONArray(array);
 		} catch (ParseException e) {
 			System.out.println("Problem with parsing totals");

@@ -10,8 +10,6 @@ import com.fmi.uni.Commands.CommandFactory;
 
 public class ConsoleView {
 
-	Command command;
-
 	private long getProfileIdFromInput() {
 
 		while (true) {
@@ -61,8 +59,6 @@ public class ConsoleView {
 
 			executeCommand(command, profile_id);
 		}
-		// sc.close();
-
 	}
 
 	public static void main(String[] args) throws ParseException {
