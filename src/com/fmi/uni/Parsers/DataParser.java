@@ -5,7 +5,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-public class Parser {
+public class DataParser {
 	public static JSONArray getJSONArray(String jsonData) throws ParseException {
 
 		JSONParser parser = new JSONParser();

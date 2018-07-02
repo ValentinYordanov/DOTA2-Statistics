@@ -36,5 +36,26 @@ public class CommandFactoryTests {
 		assertTrue("should be null", command == null);
 		
 	}
+	
+	@Test
+	public void getCommandInstanceTest5() {
+		Command command = CommandFactory.getCommandInstance("winratee", 555);
+		assertTrue("should be null", command == null);
+		
+	}
+	
+	@Test
+	public void getCommandInstanceTest6() {
+		Command command = CommandFactory.getCommandInstance("winrate lasst", 555);
+		assertTrue("should be null", command == null);
+		
+	}
+	
+	@Test
+	public void getCommandInstanceTest7() {
+		Command command = CommandFactory.getCommandInstance("winrate last", 555);
+		assertTrue("should be null", command == null);
+		
+	}
 
 }

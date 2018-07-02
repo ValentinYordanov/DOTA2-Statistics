@@ -53,4 +53,11 @@ public class CommandParserTests {
 	public void parseCommandTest9() {
 		assertTrue("return value should be null", CommandParser.parseCommand("winrite last 10") == null);
 	}
+	
+	@Test
+	public void getNumberOfMatchesToShowInGetWinrateTest() {
+		String result = CommandParser.getNumberOfMatchesToShowInGetWinrate("winrate last 100");
+		assertTrue("return value should be 100", result.equals("100"));
+		
+	}
 }
