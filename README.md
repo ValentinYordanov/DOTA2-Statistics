@@ -11,12 +11,15 @@ Run ConsoleView main method.
 Profile ID is needed for providing statistics
 
 - `winrate`
+
 *Returns number of wins/losses of the player and all time winrate in %.*
 
 - `winrate last N`
+
 *Returns number of wins/losses of the player and winrate in % for the last N games.*
 
 - `totals`
+
 *Returns all time total values for these attributes:*
 	- kills
 	- deaths
@@ -24,6 +27,7 @@ Profile ID is needed for providing statistics
 	- kda
 	- gold_per_min
 	- xp_per_min
+
 *and a lot more*
 
 ## This application is using [OpenDota.com API](https://docs.opendota.com/).
