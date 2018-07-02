@@ -10,7 +10,7 @@ public abstract class Connector {
 
 	private static final String basePlayerURL = "https://api.opendota.com/api/players/";
 
-	private static String getJSONDataFromAPI(String urlToDownloadFrom) {
+	public static String getDataFromAPI(String urlToDownloadFrom) {
 
 		String line = null;
 
@@ -32,19 +32,19 @@ public abstract class Connector {
 
 	public static String getWinrate(long profile_id) {
 
-		return getJSONDataFromAPI(basePlayerURL + profile_id + "/wl");
+		return getDataFromAPI(basePlayerURL + profile_id + "/wl");
 
 	}
 
 	public static String getWinrate(long profile_id, int numberOfMatches) {
 
-		return getJSONDataFromAPI(basePlayerURL + profile_id + "/wl" + "?limit=" + numberOfMatches);
+		return getDataFromAPI(basePlayerURL + profile_id + "/wl" + "?limit=" + numberOfMatches);
 
 	}
 
 	public static String getTotals(long profile_id) {
 
-		return getJSONDataFromAPI(basePlayerURL + profile_id + "/totals");
+		return getDataFromAPI(basePlayerURL + profile_id + "/totals");
 
 	}
 
